@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -25,12 +27,22 @@ public class ClienteController {
 	@GetMapping
 	public List<Cliente> listar() {
 		return clienteRepository.findAll();
-	
 	}
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cliente adicionar(@RequestBody Cliente cliente) {
 		return clienteRepository.save(cliente);
+	}
+	
+	@PutMapping
+	public Cliente editar(@RequestBody Cliente cliente) {
+		return clienteRepository.save(cliente);
+	}
+	
+	@DeleteMapping
+	public String excluir(@RequestBody Cliente cliente) {
+		clienteRepository.deleteById(cliente.getId());
+		return "Usuário de id " + cliente.getId() + " excluido com sucesso!";
 	}
 }

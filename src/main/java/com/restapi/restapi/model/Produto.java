@@ -9,8 +9,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Cliente {
-	
+public class Produto {
+		
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -18,7 +18,10 @@ public class Cliente {
 	@Column(nullable = false)
 	private String nome;
 	
-	private int idade;
+	private String especificacao1;
+	
+	private String especificacao2;
+
 
 	public Long getId() {
 		return id;
@@ -36,6 +39,22 @@ public class Cliente {
 		this.nome = nome;
 	}
 
+	public String getEspecificacao1() {
+		return especificacao1;
+	}
+
+	public void setEspecificacao1(String especificacao1) {
+		this.especificacao1 = especificacao1;
+	}
+
+	public String getEspecificacao2() {
+		return especificacao2;
+	}
+
+	public void setEspecificacao2(String especificacao2) {
+		this.especificacao2 = especificacao2;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -49,17 +68,11 @@ public class Cliente {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Cliente other = (Cliente) obj;
+		Produto other = (Produto) obj;
 		return Objects.equals(id, other.id);
 	}
 
-	public int getIdade() {
-		return idade;
-	}
 
-	public void setIdade(int idade) {
-		this.idade = idade;
 	}
 	
 	
-}
