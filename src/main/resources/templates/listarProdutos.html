@@ -57,13 +57,18 @@
                         <th>Nome</th>
                         <th>Especificação 1</th>
                         <th>Especificação 2</th>
+                        <th>Excluir</th>
+                        <th>Editar</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr data-th-each="produto : ${produtos}">
-                        <td data-th-text="${produto.getNome()}"></td>
-                        <td data-th-text="${produto.getEspecificacao1()}"></td>
-                        <td data-th-text="${produto.getEspecificacao2()}"></td>
+                        <td data-th-text="${produto.getNome()}" name="nome"></td>
+                        <td data-th-text="${produto.getEspecificacao1()}" name="especificacao1"></td>
+                        <td data-th-text="${produto.getEspecificacao2()}" name="especificacao2"></td>
+                        <td><a th:href="@{/deletarProduto/{id}(id=${produto.getId()})}">Excluir</a></td>
+                        <td><a th:href="@{/editarProduto/{id}(id=${produto.getId()})}">Editar</a></td>
+
                     </tr>
                 </tbody>
             </table>
