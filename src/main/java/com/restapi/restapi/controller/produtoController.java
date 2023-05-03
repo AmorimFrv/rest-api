@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.thymeleaf.engine.AttributeName;
 
-import com.restapi.restapi.model.Cliente;
 import com.restapi.restapi.model.Produto;
 import com.restapi.restapi.repository.ProdutoRepository;
 
