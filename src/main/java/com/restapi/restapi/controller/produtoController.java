@@ -38,12 +38,7 @@ public class produtoController {
 		return "redirect:/listarProdutos";
 	}
 	
-	@PostMapping("/produtoEditar{id}")
-	public String update (Produto produto, @PathVariable(name="id") Long id) {
-		produtoRepository.findById(id).get();
-		produtoRepository.save(produto);
-		return "redirect:/listarProdutos";
-	}
+	
 	
 	@GetMapping("/listarProdutos")
 	public ModelAndView listar() {
@@ -68,6 +63,12 @@ public class produtoController {
 		mv.addObject("produto",produtoEdicao);
 		return mv;
 		
+	}
+	
+	@PostMapping("/produtoEditar")
+	public String update (Produto produto) {
+		produtoRepository.save(produto);
+		return "redirect:/listarProdutos";
 	}
 	
 }
