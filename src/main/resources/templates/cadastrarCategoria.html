@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.111.3">
-    <title>Cadastrar Produto</title>
+    <title>Cadastrar Categoria</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
 
@@ -144,30 +144,21 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-1">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h2 class="fw-light">Editar Produto</h2>
+        <h2 class="fw-light">Cadastrar Categoria</h2>
       </div>
     </div>
   </section>
 
   <div class="album py-7 bg-body-tertiary">
     <div class="container">
-      <form method="POST" action="/produtoEditar">
-        <input type="hidden" th:field="${produto.id}" name="id">
+      <form method="POST" action="/categoria">
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label mt-3" style="font-size: large;">Nome do produto</label>
-          <input th:field="${produto.nome}" type="text" class="form-control" id="nomeProduto" name="nome" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Especificação do produto 1</label>
-          <input th:field="${produto.especificacao1}" type="text" class="form-control" id="especificacaoProduto1" name="especificacao1">
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Especificação do produto 2</label>
-          <input th:field="${produto.especificacao2}" type="text" class="form-control" id="especificacaoProduto2" name="especificacao2">
+          <label for="exampleInputEmail1" class="form-label mt-3" style="font-size: large;">Nome da categoria</label>
+          <input type="text" class="form-control" id="nome" aria-describedby="emailHelp" name="nome">
         </div>
 
         <div class="d-grid gap-2">
-          <button type="submit" class="btn btn-outline-secondary">Editar</button>
+          <button type="submit" class="btn btn-outline-secondary">Cadastrar</button>
         </div>
           
       </form>
@@ -193,3 +184,4 @@
       
   </body>
 </html>
+
