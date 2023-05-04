@@ -1,5 +1,4 @@
 package com.restapi.restapi.model;
-
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -22,6 +21,25 @@ public class Produto {
 	
 	private String especificacao2;
 
+	private String formaDePagamento;
+	
+	private Long valor;
+
+	public Long getValor() {
+		return valor;
+	}
+
+	public void setValor(Long valor) {
+		this.valor = valor;
+	}
+
+	public String getFormaDePagamento() {
+		return formaDePagamento;
+	}
+
+	public void setFormaDePagamento(String formaDePagamento) {
+		this.formaDePagamento = formaDePagamento;
+	}
 
 	public Long getId() {
 		return id;

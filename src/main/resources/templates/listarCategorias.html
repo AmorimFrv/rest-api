@@ -55,11 +55,16 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
+                        <th>Excluir</th>
+                        <th>Editar</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr data-th-each="categoria : ${categorias}">
-                        <td data-th-text="${categoria.getNome()}"></td>
+                        <td data-th-text="${categoria.getNome()}" name="nome"></td>
+                        <td><a th:href="@{/deletarCategoria/{id}(id=${categoria.getId()})}">Excluir</a></td>
+                        <td><a th:href="@{/editarCategorias/{id}(id=${categoria.getId()})}">Editar</a></td>
+
                     </tr>
                 </tbody>
             </table>
