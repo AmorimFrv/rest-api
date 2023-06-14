@@ -39,9 +39,11 @@ public class produtoController {
 	@GetMapping("/listarProdutos")
 	public ModelAndView listar() {
 		List<Produto> produtos = produtoRepository.findAll();
+		Long valoresSomados = produtoRepository.somarValores();
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("listarProdutos");
 		mv.addObject("produtos", produtos);
+		mv.addObject("valores", valoresSomados);
 		return mv;
 	}
 	

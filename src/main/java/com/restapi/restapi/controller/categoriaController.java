@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.restapi.restapi.model.Categoria;
-import com.restapi.restapi.model.Produto;
 import com.restapi.restapi.repository.CategoriaRepository;
 
 
