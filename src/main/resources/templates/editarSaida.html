@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.111.3">
-    <title>Cadastrar Produto</title>
+    <title>Editar Saida</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
 
@@ -144,40 +144,43 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-1">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h2 class="fw-light">Editar Produto</h2>
+        <h2 class="fw-light">Editar Saida</h2>
       </div>
     </div>
   </section>
 
   <div class="album py-7 bg-body-tertiary">
     <div class="container">
-      <form method="POST" action="/produtoEditar" name="formulario">
-        <input type="hidden" th:field="${produto.id}" name="id">
+      <form method="POST" action="/saidaEditar">
+        <input type="hidden" th:field="${saida.id}" name="id">
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label mt-3" style="font-size: large;">Nome do produto</label>
-          <input th:field="${produto.nome}" type="text" class="form-control" id="nomeProduto" name="nome" aria-describedby="emailHelp">
+          <label for="exampleInputEmail1" class="form-label mt-3" style="font-size: large;">Data</label>
+          <input type="text" class="form-control" id="data" name="data" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Especificação do produto 1</label>
-          <input th:field="${produto.especificacao1}" type="text" class="form-control" id="especificacaoProduto1" name="especificacao1">
+            <label for="exampleInputEmail1" class="form-label mt-3" style="font-size: large;">Item</label>
+            <input type="text" class="form-control" id="item" name="item" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label mt-3" style="font-size: large;">Categoria</label>
+            <input type="text" class="form-control" id="categoria" name="categoria" aria-describedby="emailHelp">
+          </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Especificação 1</label>
+          <input type="text" class="form-control" id="especificacao1" name="especificacao1">
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Especificação do produto 2</label>
-          <input th:field="${produto.especificacao2}" type="text" class="form-control" id="especificacaoProduto2" name="especificacao2">
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Valor entrada</label>
-          <input th:field="${produto.valorEntrada}" type="text" class="form-control" id="valorEntrada" name="valorEntrada">
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Valor Saída</label>
-          <input th:field="${produto.valorSaida}" type="text" class="form-control" id="valorSaida" name="valorSaida">
+          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Especificação 2</label>
+          <input type="text" class="form-control" id="especificacao2" name="especificacao2">
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Quantidade</label>
-          <input th:field="${produto.quantidade}" type="number" class="form-control" id="quantidade" name="quantidade">
+          <input type="text" class="form-control" id="quantidade" name="quantidade">
         </div>
-
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Valor</label>
+          <input type="text" class="form-control" id="valor" name="valor">
+        </div> 
         <div class="d-grid gap-2">
           <button type="submit" class="btn btn-outline-secondary" onclick="unmask()">Editar</button>
         </div>
@@ -199,21 +202,27 @@
 </footer>
 
 
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script sc="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>       
 <script>
   $( document ).ready(function() {
-      $('#valorEntrada').mask('#.##0,00', {reverse: true});
-      $('#valorSaida').mask('#.##0,00', {reverse: true});
+      $('#valor').mask('#.##0,00', {reverse: true});
+      $("#data").mask("99/99/9999");
   });
   function unmask(){
-    $("#valorEntrada").unmask();
-    $("#valorSaida").unmask();
+    var valor = document.getElementById("valor").value
+    $("#valor").unmask();
     document.formulario.submit();
-    $('#valorEntrada').mask('#.##0,00', {reverse: true});
-    $('#valorSaida').mask('#.##0,00', {reverse: true});
+    $('#valor').mask('#.##0,00', {reverse: true});
+
+    var data = document.getElementByName("data").value
+    $("#data").unmask();
+    documment.formulario.submit();
+    $("#data").mask("99/99/9999");
   }
-</script>      
+</script>
   </body>
 </html>

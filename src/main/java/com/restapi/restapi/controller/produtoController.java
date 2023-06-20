@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import com.restapi.restapi.model.Categoria;
 import com.restapi.restapi.model.Produto;
+import com.restapi.restapi.repository.CategoriaRepository;
 import com.restapi.restapi.repository.ProdutoRepository;
 
 
@@ -21,11 +22,17 @@ public class produtoController {
 	
 	@Autowired
 	private ProdutoRepository produtoRepository;
+	@Autowired
+	private CategoriaRepository categoriaRepository;
 
 	
 	@GetMapping("/produto")
-	public String home() {
-		return "cadastrarProdutos.html";
+	public ModelAndView home() {
+		List<Categoria> categorias = categoriaRepository.findAll();
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("cadastrarProdutos");
+		mv.addObject("categorias", categorias);
+		return mv;
 	}
 	
 	@PostMapping("/produto")
@@ -39,11 +46,11 @@ public class produtoController {
 	@GetMapping("/listarProdutos")
 	public ModelAndView listar() {
 		List<Produto> produtos = produtoRepository.findAll();
-		Long valoresSomados = produtoRepository.somarValores();
+		//Long valoresSomados = produtoRepository.somarValores();
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("listarProdutos");
 		mv.addObject("produtos", produtos);
-		mv.addObject("valores", valoresSomados);
+		//mv.addObject("valores", valoresSomados);
 		return mv;
 	}
 	

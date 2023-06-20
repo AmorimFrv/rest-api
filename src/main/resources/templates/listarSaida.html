@@ -43,7 +43,7 @@
     <section class="py-5 text-center container">
         <div class="row py-lg-1">
           <div class="col-lg-6 col-md-8 mx-auto">
-            <h2 class="fw-light">Produtos</h2>
+            <h2 class="fw-light">Saidas</h2>
           </div>
         </div>
       </section>
@@ -54,38 +54,30 @@
             <table id="example" class="display" style="width:100%; padding: 10px;">
                 <thead>
                     <tr>
-                        <th>Nome</th>
-                        <th>Categoria</th>
-                        <th>Especificação 1</th>
-                        <th>Especificação 2</th>
-                        <th>Valor Entrada</th>
-                        <th>Valor Saída</th>
-                        <th>Quantidade</th>
-                        <th>Excluir</th>
-                        <th>Editar</th>
+                      <th>Data</th>
+                      <th>Item</th>
+                      <th>Categoria</th>
+                      <th>Especificacao 1</th>
+                      <th>Especificacao 2</th>
+                      <th>Quantidade</th>
+                      <th>Valor</th>
+                      <th>Excluir</th>
+                      <th>Editar</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr data-th-each="produto : ${produtos}">
-                        <td data-th-text="${produto.getNome()}" name="nome"></td>
-                        <td data-th-text="${produto.nomeCategoria}" name="categoria"></td>
-                        <td data-th-text="${produto.getEspecificacao1()}" name="especificacao1"></td>
-                        <td data-th-text="${produto.getEspecificacao2()}" name="especificacao2"></td>
-                        <!--- Usar depois para calcular rendimentos
-                            <td data-th-text="${produto.getValor()}" id="valor" name="valor" class="valor"></td>--->
-                        <td data-th-text="${produto.getValorEntrada()}" id="valorEntrada" name="valorEntrada" class="valor"></td>
-                        <td data-th-text="${produto.getValorSaida()}" id="valorSaida" name="valorSaida" class="valor"></td>
-                        <td data-th-text="${produto.getQuantidade()}" id="quantidade" name="quantidade"></td>
-                        <td><a th:href="@{/deletarProduto/{id}(id=${produto.getId()})}">Excluir</a></td>
-                        <td><a th:href="@{/editarProduto/{id}(id=${produto.getId()})}">Editar</a></td>
+                    <tr data-th-each="saida : ${saidas}">
+                        <td data-th-text="${saida.getData()}" name="data" type="text" id="data"></td>
+                        <td data-th-text="${saida.getItem()}" name="Item"></td>
+                        <td data-th-text="${saida.getCategoria()}" name="categoria"></td>
+                        <td data-th-text="${saida.getEspecificacao1()}" name="especificacao1"></td>
+                        <td data-th-text="${saida.getEspecificacao2()}" name="especificacao2"></td>
+                        <td data-th-text="${saida.getQuantidade()}" name="quantidade"></td>
+                        <td data-th-text="${saida.getValor()}" id="valor" class="valor" name="Valor"></td>
+                        <td><a th:href="@{/deletarSaida/{id}(id=${saida.getId()})}">Excluir</a></td>
+                        <td><a th:href="@{/editarSaida/{id}(id=${saida.getId()})}">Editar</a></td>
                     </tr>
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <th>Rendimento Total</th>
-                        <th id="valores" data-th-text="${valores}"></th>
-                    </tr>
-                </tfoot>
             </table>
         </div>
     </div>
@@ -107,7 +99,7 @@
   <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>       
   <script>
     $(document).ready(function() {
-        $('#valores').mask('#.##0,00', {reverse: true});
+      $(".data").mask("99/99/9999");
     	$('.valor').mask('#.##0,00', {reverse: true});
         $('#example').DataTable( {
             "language": {
@@ -115,7 +107,6 @@
             }
         } );
     } );
-
 
 
   </script>

@@ -165,16 +165,21 @@
           <input type="text" class="form-control" id="especificacaoProduto2" name="especificacao2">
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Valor</label>
-          <input type="text" class="form-control" id="valor" name="valor">
+          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Valor Entrada</label>
+          <input type="text" class="form-control" id="valorEntrada" name="valorEntrada">
         </div>
         <div class="mb-3">
-          <select class="form-control" name="formaDePagamento" aria-label="Default select example" required>
-            <option selected>Forma de pagamento</option>
-            <option value="Débito">Débito</option>
-            <option value="Crédito">Crédito</option>
-            <option value="Pix">Pix</option>
-            <option value="Dinheiro">Dinheiro</option>
+          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Valor Saída</label>
+          <input type="text" class="form-control" id="valorSaida" name="valorSaida">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Quantidade</label>
+          <input type="number" class="form-control" id="quantidade" name="quantidade">
+        </div>
+        <div class="mb-3">
+          <select class="form-control" name="nomeCategoria" aria-label="Default select example" required>
+            <option selected>Selecione a categoria</option>
+            <option th:each="categoria : ${categorias}" th:value="${categoria.nome}" th:text="${categoria.nome}"></option>
           </select>
         </div> 
         <div class="d-grid gap-2">
@@ -204,13 +209,18 @@
 <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>       
 <script>
   $( document ).ready(function() {
-      $('#valor').mask('#.##0,00', {reverse: true});
+      $('#valorEntrada').mask('#.##0,00', {reverse: true});
+      $('#valorSaida').mask('#.##0,00', {reverse: true});
+      
+
   });
   function unmask(){
-    var valor = document.getElementById("valor").value
-    $("#valor").unmask();
+    $("#valorEntrada").unmask();
+    $("#valorSaida").unmask();
     document.formulario.submit();
-    $('#valor').mask('#.##0,00', {reverse: true});
+    $('#valorEntrada').mask('#.##0,00', {reverse: true});
+    $('#valorSaida').mask('#.##0,00', {reverse: true});
+    
   }
 </script>
   </body>

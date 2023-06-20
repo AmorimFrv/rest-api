@@ -8,33 +8,57 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Produto {
+public class Entrada {
 		
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column(nullable = false)
-	private String nome;
+	private String data;
+	
+	private String categoria;
 	
 	private String especificacao1;
-	
+
 	private String especificacao2;
 	
-	private Long valorEntrada;
+	private Long quantidade;
 	
-	private Long valorSaida;
+	private Long valor;
 	
-	private int quantidade;
+	private String item;
 	
-	private String nomeCategoria;
-
-	public Long getValorEntrada() {
-		return valorEntrada;
+	public String getData() {
+		return data;
 	}
 
-	public void setValorEntrada(Long valorEntrada) {
-		this.valorEntrada = valorEntrada;
+	public void setData(String data) {
+		this.data = data;
+	}
+
+	public Long getValor() {
+		return valor;
+	}
+
+	public void setValor(Long valor) {
+		this.valor = valor;
+	}
+
+	public String getEspecificacao1() {
+		return especificacao1;
+	}
+
+	public void setEspecificacao1(String especificacao1) {
+		this.especificacao1 = especificacao1;
+	}
+	
+	public String getEspecificacao2() {
+		return especificacao2;
+	}
+
+	public void setEspecificacao2(String especificacao2) {
+		this.especificacao2 = especificacao2;
 	}
 
 	public Long getId() {
@@ -45,52 +69,28 @@ public class Produto {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getCategoria() {
+		return categoria;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
 	}
 
-	public String getEspecificacao1() {
-		return especificacao1;
-	}
-
-	public void setEspecificacao1(String especificacao1) {
-		this.especificacao1 = especificacao1;
-	}
-
-	public String getEspecificacao2() {
-		return especificacao2;
-	}
-
-	public void setEspecificacao2(String especificacao2) {
-		this.especificacao2 = especificacao2;
-	}
-	
-	public Long getValorSaida() {
-		return valorSaida;
-	}
-
-	public void setValorSaida(Long valorSaida) {
-		this.valorSaida = valorSaida;
-	}
-	
-	public int getQuantidade() {
+	public Long getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(int quantidade) {
+	public void setQuantidade(Long quantidade) {
 		this.quantidade = quantidade;
 	}
 	
-	public String getNomeCategoria() {
-		return nomeCategoria;
+	public String getItem() {
+		return item;
 	}
 
-	public void setNomeCategoria(String nomeCategoria) {
-		this.nomeCategoria = nomeCategoria;
+	public void setItem(String item) {
+		this.item = item;
 	}
 
 	@Override
@@ -106,13 +106,11 @@ public class Produto {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Produto other = (Produto) obj;
+		Entrada other = (Entrada) obj;
 		return Objects.equals(id, other.id);
 	}
 
 
-
-	
 	}
 	
 	
