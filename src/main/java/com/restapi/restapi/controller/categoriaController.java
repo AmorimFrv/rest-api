@@ -1,5 +1,6 @@
 package com.restapi.restapi.controller;
 
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.restapi.restapi.model.Categoria;
 import com.restapi.restapi.repository.CategoriaRepository;
+import com.restapi.restapi.model.CategoriaLog;
+import com.restapi.restapi.repository.CategoriaLogRepository;
 
 
 
@@ -19,6 +22,8 @@ public class categoriaController {
 	
 	@Autowired
 	private CategoriaRepository categoriaRepository;
+	@Autowired
+	private CategoriaLogRepository categoriaLogRepository;
 
 	
 	@GetMapping("/categoria")
@@ -28,7 +33,18 @@ public class categoriaController {
 	
 	@PostMapping("/categoria")
 	public String create (Categoria categoria) {
+		//Salvando categoria
 		categoriaRepository.save(categoria);
+		//Salvando log
+		Categoria categoriaEdicao = categoriaRepository.findById(categoria.getId()).get();
+		Calendar data = Calendar.getInstance();
+		CategoriaLog categoriaLog = new CategoriaLog();
+		categoriaLog.setId_Categoria(categoriaEdicao.getId());
+		categoriaLog.setOperacao("Insert");
+		categoriaLog.setDataAtualizacao(data.getTime().toString());
+		categoriaLog.setNome(categoriaEdicao.getNome());
+		categoriaLogRepository.save(categoriaLog);
+		//Redirecionando
 		return "redirect:/listarCategoria";
 	}
 	
@@ -38,6 +54,9 @@ public class categoriaController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("listarCategorias");
 		mv.addObject("categorias", categorias);
+		for(int i = 0; i< categorias.size(); i++ ) {
+			System.out.println(categorias.get(i).getNome()); 
+		}
 		return mv;
 	}
 	

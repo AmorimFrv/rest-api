@@ -7,11 +7,120 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.111.3">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  </head>
+
+    <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css"/>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css" rel="stylesheet"/>
+    <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css"/>
+    <link rel="stylesheet" type="text/css" href="./teste.css"/>
+
+    <style>
+      .gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #982fed, #5b39f7, #4c67e0, #45dbed);
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #982fed, #5b39f7, #4c67e0, #45dbed);
+    }
+    
+    @media (min-width: 768px) {
+    .gradient-form {
+    height: 100vh !important;
+    }
+    }
+    @media (min-width: 769px) {
+    .gradient-custom-2 {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+    }
+    }
+
+    .modalbtn{
+      background-color: linear-gradient(to right, #982fed, #5b39f7, #4c67e0, #45dbed);
+    }
+
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+    </style>
+
+
   <body>
-    <header data-bs-theme="dark">
+    <header class="gradient-custom-2">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
           <div class="container-fluid">
             <a class="navbar-brand" href="index.html">Home</a>
@@ -22,16 +131,11 @@
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Opções
+                    Cadastros
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="index.html">Produtos</a></li>
-                    <li><a class="dropdown-item" href="cadastrarProdutos.html">Cadastrar Produtos</a></li>
-                    <li><a class="dropdown-item" href="editarProdutos.html">Editar Produtos</a></li>
-                    <li><a class="dropdown-item" href="listarProdutos.html">Listar Produtos</a></li>
-                    <li><a class="dropdown-item" href="cadastrarCategoria.html">Cadastrar Categoria</a></li>
-                    <li><a class="dropdown-item" href="editarCategoria.html">Editar Categoria</a></li>
-                    <li><a class="dropdown-item" href="listarCategoria.html">Listar Categoria</a></li>
+                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modalEntrada" data-bs-whatever="@mdo">Entradas</a></li>
+                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modalSaida" data-bs-whatever="@fat">Saidas</a></li>
                   </ul>
                 </li>
               </ul>
@@ -48,74 +152,173 @@
         </div>
       </section>
 
+      <div class="modal fade" id="modalEntrada" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar Entrada</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form method="POST" action="/entrada" name="formulario">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label mt-3" style="font-size: large;">Data</label>
+                  <input type="text" class="form-control" id="data" name="data" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label mt-3" style="font-size: large;">Item</label>
+                  <select class="form-control" name="item" aria-label="Default select example" required>
+                    <option disabled selected>Selecione o item</option>
+                    <option th:each="produto : ${produtos}" th:value="${produto.nome}" th:text="${produto.nome}"></option>
+                  </select>
+                </div> 
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Quantidade</label>
+                  <input type="number" class="form-control" id="quantidade" name="quantidade">
+                </div>
+                <div class="d-grid gap-2">
+                  <button type="submit" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" onclick="unmask()">Cadastrar</button>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="modalSaida" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar Saida</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form method="POST" action="/saida" name="formulario">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label mt-3" style="font-size: large;">Data</label>
+                  <input type="text" class="form-control" id="data" name="data" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label mt-3" style="font-size: large;">Item</label>
+                  <select class="form-control" name="item" aria-label="Default select example" required>
+                    <option disabled selected>Selecione o item</option>
+                    <option th:each="produto : ${produtos}" th:value="${produto.nome}" th:text="${produto.nome}"></option>
+                  </select>
+                </div> 
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Quantidade</label>
+                  <input type="text" class="form-control" id="quantidade" name="quantidade">
+                </div>
+                <div class="d-grid gap-2">
+                  <button type="submit" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" onclick="unmask()">Cadastrar</button>
+                </div>
+                  
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
     <div class="album py-5 bg-body-tertiary">
-        <div class="container">
-            <table id="example" class="display" style="width:100%; padding: 10px;">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Categoria</th>
-                        <th>Especificação 1</th>
-                        <th>Especificação 2</th>
-                        <th>Valor Entrada</th>
-                        <th>Valor Saída</th>
-                        <th>Quantidade</th>
-                        <th>Excluir</th>
-                        <th>Editar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr data-th-each="produto : ${produtos}">
-                        <td data-th-text="${produto.getNome()}" name="nome"></td>
-                        <td data-th-text="${produto.nomeCategoria}" name="categoria"></td>
-                        <td data-th-text="${produto.getEspecificacao1()}" name="especificacao1"></td>
-                        <td data-th-text="${produto.getEspecificacao2()}" name="especificacao2"></td>
-                        <!--- Usar depois para calcular rendimentos
-                            <td data-th-text="${produto.getValor()}" id="valor" name="valor" class="valor"></td>--->
-                        <td data-th-text="${produto.getValorEntrada()}" id="valorEntrada" name="valorEntrada" class="valor"></td>
-                        <td data-th-text="${produto.getValorSaida()}" id="valorSaida" name="valorSaida" class="valor"></td>
-                        <td data-th-text="${produto.getQuantidade()}" id="quantidade" name="quantidade"></td>
-                        <td><a th:href="@{/deletarProduto/{id}(id=${produto.getId()})}">Excluir</a></td>
-                        <td><a th:href="@{/editarProduto/{id}(id=${produto.getId()})}">Editar</a></td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>Rendimento Total</th>
-                        <th id="valores" data-th-text="${valores}"></th>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-    </div>
+      <div class="container">
+          <table id="example" class="table table-striped" style="width:100%; padding:15%">
+              <thead>
+                  <tr>
+                      <th>Nome</th>
+                      <th>Categoria</th>
+                      <th>Fornecedor</th>
+                      <th>Especificação 1</th>
+                      <th>Especificação 2</th>
+                      <th>Valor Entrada</th>
+                      <th>Valor Saída</th>
+                      <th>Excluir</th>
+                      <th>Editar</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr data-th-each="produto : ${produtos}">
+                      <td data-th-text="${produto.getNome()}" name="nome"></td>
+                      <td data-th-text="${produto.getNomeCategoria()}" name="categoria"></td>
+                      <td data-th-text="${produto.getNomeFornecedor()}" name="fornecedor"></td>
+                      <td data-th-text="${produto.getEspecificacao1()}" name="especificacao1"></td>
+                      <td data-th-text="${produto.getEspecificacao2()}" name="especificacao2"></td>
+                      <!--- Usar depois para calcular rendimentos
+                      <td data-th-text="${produto.getValor()}" id="valor" name="valor" class="valor"></td>--->
+                      <td data-th-text="${produto.getValorEntrada()}" id="valorEntrada" name="valorEntrada" class="valor"></td>
+                      <td data-th-text="${produto.getValorSaida()}" id="valorSaida" name="valorSaida" class="valor"></td>
+                      <td><a th:href="@{/deletarProduto/{id}(id=${produto.getId()})}">Excluir</a></td>
+                      <td><a th:href="@{/editarProduto/{id}(id=${produto.getId()})}">Editar</a></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
 
-
-    <footer class="text-body-secondary py-5">
+      <footer class="text-body-secondary py-5">
         <div class="container">
           <p class="float-end mb-1">
             <a href="#">Voltar ao Topo</a>
           </p>
-          <p class="mb-0">Copyright © Crystal System </p>
+          <p class="mb-0">Copyright © CristalUP Systems </p>
         </div>
       </footer>
 
+
   </body>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-  <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>       
+  <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+  <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>  
+  
+  
   <script>
-    $(document).ready(function() {
-        $('#valores').mask('#.##0,00', {reverse: true});
-    	$('.valor').mask('#.##0,00', {reverse: true});
+    $( document ).ready(function() {
+        $('#valorEntrada').mask('#.##0,00', {reverse: true});
+        $('#valorSaida').mask('#.##0,00', {reverse: true});
+        $('.valor').mask('#.##0,00',{reverse: true});
+        $("#data").mask("99/99/9999");
         $('#example').DataTable( {
             "language": {
                 "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese-Brasil.json"
             }
         } );
-    } );
+    });
 
+    function unmask(){
+    var data = document.getElementByName("data").value
+    $("#data").unmask();
+    documment.formulario.submit();
+    $("#data").mask("99/99/9999");
+  }
 
+  const modalEntrada = document.getElementById('modalEntrada')
+if (modalEntrada) {
+  modalEntrada.addEventListener('show.bs.modal', event => {
+    const button = event.relatedTarget
+    const recipient = button.getAttribute('data-bs-whatever')
+    const modalTitle = modalEntrada.querySelector('.modal-title')
+    const modalBodyInput = modalEntrada.querySelector('.modal-body input')
 
-  </script>
+  })
+}
+
+const modalSaida = document.getElementById('modalSaida')
+if (modalSaida) {
+  modalSaida.addEventListener('show.bs.modal', event => {
+    const button = event.relatedTarget
+    const recipient = button.getAttribute('data-bs-whatever')
+    const modalTitle = modalSaida.querySelector('.modal-title')
+    const modalBodyInput = modalSaida.querySelector('.modal-body input')
+
+  })
+}
+  </script>   

@@ -177,6 +177,20 @@
           <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Quantidade</label>
           <input th:field="${produto.quantidade}" type="number" class="form-control" id="quantidade" name="quantidade">
         </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Categoria</label>
+          <select class="form-control" name="nomeCategoria" aria-label="Default select example">
+            <option th:value="${produto.nomeCategoria}" th:text="${produto.nomeCategoria}" selected></option>
+            <option th:each="categoria : ${categorias}" th:value="${categoria.nome}" th:text="${categoria.nome}"></option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Fornecedor</label>
+          <select class="form-control" name="nomeFornecedor" aria-label="Default select example">
+            <option th:value="${produto.nomeFornecedor}" th:text="${produto.nomeFornecedor}" selected>Selecione o fornecedor</option>
+            <option th:each="fornecedor : ${fornecedores}" th:value="${fornecedor.nome}" th:text="${fornecedor.nome}"></option>
+          </select>
+        </div>
 
         <div class="d-grid gap-2">
           <button type="submit" class="btn btn-outline-secondary" onclick="unmask()">Editar</button>

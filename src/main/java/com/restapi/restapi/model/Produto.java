@@ -28,6 +28,8 @@ public class Produto {
 	private int quantidade;
 	
 	private String nomeCategoria;
+	
+	private String nomeFornecedor;
 
 	public Long getValorEntrada() {
 		return valorEntrada;
@@ -108,6 +110,14 @@ public class Produto {
 			return false;
 		Produto other = (Produto) obj;
 		return Objects.equals(id, other.id);
+	}
+
+	public String getNomeFornecedor() {
+		return nomeFornecedor;
+	}
+
+	public void setNomeFornecedor(String nomeFornecedor) {
+		this.nomeFornecedor = nomeFornecedor;
 	}
 
 

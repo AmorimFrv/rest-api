@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.restapi.restapi.model.Categoria;
+import com.restapi.restapi.model.Fornecedor;
 import com.restapi.restapi.model.Produto;
 import com.restapi.restapi.repository.CategoriaRepository;
+import com.restapi.restapi.repository.FornecedorRepository;
 import com.restapi.restapi.repository.ProdutoRepository;
 
 
@@ -24,14 +26,18 @@ public class produtoController {
 	private ProdutoRepository produtoRepository;
 	@Autowired
 	private CategoriaRepository categoriaRepository;
+	@Autowired
+	private FornecedorRepository fornecedorRepository;
 
 	
 	@GetMapping("/produto")
 	public ModelAndView home() {
 		List<Categoria> categorias = categoriaRepository.findAll();
+		List<Fornecedor> fornecedor = fornecedorRepository.findAll();
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("cadastrarProdutos");
 		mv.addObject("categorias", categorias);
+		mv.addObject("fornecedores", fornecedor);
 		return mv;
 	}
 	
@@ -50,7 +56,6 @@ public class produtoController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("listarProdutos");
 		mv.addObject("produtos", produtos);
-		//mv.addObject("valores", valoresSomados);
 		return mv;
 	}
 	
@@ -63,8 +68,12 @@ public class produtoController {
 	@GetMapping("/editarProduto/{id}")
 	public ModelAndView listarEdicao (Produto produto, @PathVariable(name = "id") Long id) {
 		Produto produtoEdicao = produtoRepository.findById(id).get();
+		List<Categoria> categorias = categoriaRepository.findAll();
+		List<Fornecedor> fornecedor = fornecedorRepository.findAll();
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("editarProdutos");
+		mv.addObject("categorias", categorias);
+		mv.addObject("fornecedores", fornecedor);
 		mv.addObject("produto",produtoEdicao);
 		return mv;
 		

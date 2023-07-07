@@ -7,17 +7,40 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.111.3">
-    <title>Cadastrar Produto</title>
+    <title>Editar Usuários</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
-
-    
-
-    
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css"/>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="/teste.css"/>
 
     <style>
+      .gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #982fed, #5b39f7, #4c67e0, #45dbed);
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #982fed, #5b39f7, #4c67e0, #45dbed);
+    }
+    
+    @media (min-width: 768px) {
+    .gradient-form {
+    height: 100vh !important;
+    }
+    }
+    @media (min-width: 769px) {
+    .gradient-custom-2 {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+    }
+    }
+
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -110,7 +133,7 @@
       </symbol>
     </svg>
     
-    <header data-bs-theme="dark">
+    <header class="gradient-custom-2">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="index.html">Home</a>
@@ -144,54 +167,34 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-1">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h2 class="fw-light">Cadastrar Produto</h2>
+        <h3 class="fw-light">Editar Usuários</h3>
       </div>
     </div>
   </section>
 
   <div class="album py-7 bg-body-tertiary">
     <div class="container">
-      <form method="POST" action="/produto" name="formulario">
+      <form method="POST" action="/usuarioEditar" name="formulario">
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label mt-3" style="font-size: large;">Nome do produto</label>
-          <input type="text" class="form-control" id="nomeProduto" name="nome" aria-describedby="emailHelp">
+          <label for="exampleInputEmail1" class="form-label mt-3" style="font-size: large;">Nome de Usuário</label>
+          <input type="text" class="form-control" id="nome" name="nome" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Especificação do produto 1</label>
-          <input type="text" class="form-control" id="especificacaoProduto1" name="especificacao1">
+          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Senha</label>
+          <input type="password" class="form-control" id="senha" name="senha">
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Especificação do produto 2</label>
-          <input type="text" class="form-control" id="especificacaoProduto2" name="especificacao2">
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Valor Entrada</label>
-          <input type="text" class="form-control" id="valorEntrada" name="valorEntrada">
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Valor Saída</label>
-          <input type="text" class="form-control" id="valorSaida" name="valorSaida">
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Quantidade</label>
-          <input type="number" class="form-control" id="quantidade" name="quantidade">
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Categoria</label>
-          <select class="form-control" name="nomeCategoria" aria-label="Default select example" required>
-            <option selected>Selecione a categoria</option>
-            <option th:each="categoria : ${categorias}" th:value="${categoria.nome}" th:text="${categoria.nome}"></option>
+          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Tipo de Usuário</label>
+          <select class="form-control" name="tipoUsuario" aria-label="Default select example" required>
+            <option disabled selected>Selecione o Tipo de Usuário</option>
+            <option value="Admnistrador">Admnistrador</option>
+            <option value="Admnisrrador">Usuário</option>
           </select>
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Fornecedor</label>
-          <select class="form-control" name="nomeFornecedor" aria-label="Default select example" required>
-            <option selected>Selecione o fornecedor</option>
-            <option th:each="fornecedor : ${fornecedores}" th:value="${fornecedor.nome}" th:text="${fornecedor.nome}"></option>
-          </select>
-        </div>  
+
+          
+        </div> 
         <div class="d-grid gap-2">
-          <button type="button" class="btn btn-outline-secondary" onclick="unmask()">Cadastrar</button>
+          <button type="button" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3">Editar</button>
         </div>
           
       </form>
@@ -213,23 +216,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script sc="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>       
-<script>
-  $( document ).ready(function() {
-      $('#valorEntrada').mask('#.##0,00', {reverse: true});
-      $('#valorSaida').mask('#.##0,00', {reverse: true});
-      
 
-  });
-  function unmask(){
-    $("#valorEntrada").unmask();
-    $("#valorSaida").unmask();
-    document.formulario.submit();
-    $('#valorEntrada').mask('#.##0,00', {reverse: true});
-    $('#valorSaida').mask('#.##0,00', {reverse: true});
-    
-  }
-</script>
   </body>
 </html>
