@@ -154,7 +154,7 @@
       <form method="POST" action="/entradaFinanceiro" name="formulario">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label mt-3" style="font-size: large;">Data</label>
-          <input type="text" class="form-control" id="data" name="data" aria-describedby="emailHelp">
+          <input type="text" class="form-control" id="data" name="data" aria-describedby="emailHelp" required>
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Especificação 1</label>
@@ -166,7 +166,7 @@
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Valor</label>
-          <input type="text" class="form-control" id="valor" name="valor">
+          <input type="text" class="form-control" id="valor" name="valor" required>
         </div>
         <div class="d-grid gap-2">
           <button type="button" class="btn btn-outline-secondary" onclick="unmask()">Cadastrar</button>
@@ -199,15 +199,27 @@
       $("#data").mask("99/99/9999");
   });
   function unmask(){
+
     var valor = document.getElementById("valor").value
     $("#valor").unmask();
+    var data = document.getElementById("data").value
+    $("#data").unmask();
+
+    if(data == "" || valor == ""){
+      alert("Preencha os campos corretamente")
+      $('#valor').mask('#.##0,00', {reverse: true});
+      $("#data").mask("99/99/9999");
+    }
+    else {
     document.formulario.submit();
     $('#valor').mask('#.##0,00', {reverse: true});
-
-    var data = document.getElementByName("data").value
-    $("#data").unmask();
-    documment.formulario.submit();
     $("#data").mask("99/99/9999");
+    }
+
+
+
+
+    
   }
 </script>
   </body>

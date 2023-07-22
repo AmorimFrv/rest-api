@@ -155,7 +155,7 @@
         <input type="hidden" th:field="${entradaFinanceiro.id}" name="id">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label mt-3" style="font-size: large;">Data</label>
-          <input type="text" th:field="${entradaFinanceiro.data}" class="form-control" id="data" name="data" aria-describedby="emailHelp">
+          <input type="text" th:field="${entradaFinanceiro.data}" class="form-control" id="data" name="data" aria-describedby="emailHelp" required>
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Especificação 1</label>
@@ -167,10 +167,10 @@
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Valor</label>
-          <input type="text" th:field="${entradaFinanceiro.valor}" class="form-control" id="valor" name="valor">
+          <input type="text" th:field="${entradaFinanceiro.valor}" class="form-control" id="valor" name="valor" required>
         </div> 
         <div class="d-grid gap-2">
-          <button type="submit" class="btn btn-outline-secondary" onclick="unmask()">Editar</button>
+          <button type="submit" class="btn btn-outline-secondary" onclick="unmask()" >Editar</button>
         </div>
           
       </form>
@@ -208,7 +208,7 @@
 
     var data = document.getElementByName("data").value
     $("#data").unmask();
-    documment.formulario.submit();
+    document.formulario.submit();
     $("#data").mask("99/99/9999");
   }
 </script>

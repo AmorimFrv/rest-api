@@ -155,7 +155,7 @@
         <input type="hidden" th:field="${categoria.id}" name="id">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label mt-3" style="font-size: large;">Nome da Categoria</label>
-          <input th:field="${categoria.nome}" type="text" class="form-control" id="nomeCategoria" name="nome" aria-describedby="emailHelp">
+          <input th:field="${categoria.nome}" type="text" class="form-control" id="nomeCategoria" name="nome" aria-describedby="emailHelp" required>
         </div>
 
         <div class="d-grid gap-2">
