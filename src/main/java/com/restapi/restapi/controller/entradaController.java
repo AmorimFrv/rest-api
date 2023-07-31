@@ -47,11 +47,11 @@ public class entradaController {
 	@GetMapping("/listarEntrada")
 	public ModelAndView listar() {
 		List<Entrada> entradas = entradaRepository.findAll();
-		Long valoresSomados = entradaRepository.somarValores();
+		//Long valoresSomados = entradaRepository.somarValores();
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("listarEntrada");
 		mv.addObject("entradas", entradas);
-		mv.addObject("valores", valoresSomados);
+		//mv.addObject("valores", valoresSomados);
 		return mv;
 	}
 	
@@ -64,9 +64,11 @@ public class entradaController {
 	@GetMapping("/editarEntrada/{id}")
 	public ModelAndView listarEdicao (Entrada entrada, @PathVariable(name = "id") Long id) {
 		Entrada entradaEdicao = entradaRepository.findById(id).get();
+		List<Produto> produtos = produtoRepository.findAll();
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("editarEntrada");
 		mv.addObject("entrada",entradaEdicao);
+		mv.addObject("produto", produtos);
 		return mv;
 		
 	}

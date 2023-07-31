@@ -12,7 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import com.restapi.restapi.model.Saida;
+import com.restapi.restapi.model.Produto;
 import com.restapi.restapi.repository.SaidaRepository;
+import com.restapi.restapi.repository.ProdutoRepository;
 
 
 
@@ -21,11 +23,17 @@ public class saidaController {
 	
 	@Autowired
 	private SaidaRepository saidaRepository;
+	@Autowired
+	private ProdutoRepository produtoRepository;
 
 	
 	@GetMapping("/saida")
-	public String home() {
-		return "cadastrarSaida.html";
+	public ModelAndView home() {
+		List<Produto> produtos = produtoRepository.findAll();
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("cadastrarSaida");
+		mv.addObject("produtos", produtos);
+		return mv;
 	}
 	
 	@PostMapping("/saida")
@@ -39,11 +47,11 @@ public class saidaController {
 	@GetMapping("/listarSaida")
 	public ModelAndView listar() {
 		List<Saida> saidas = saidaRepository.findAll();
-		Long valoresSomados = saidaRepository.somarValores();
+		//Long valoresSomados = saidaRepository.somarValores();
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("listarSaida");
 		mv.addObject("saidas", saidas);
-		mv.addObject("valores", valoresSomados);
+		//mv.addObject("valores", valoresSomados);
 		return mv;
 	}
 	
@@ -56,9 +64,11 @@ public class saidaController {
 	@GetMapping("/editarSaida/{id}")
 	public ModelAndView listarEdicao (Saida saida, @PathVariable(name = "id") Long id) {
 		Saida saidaEdicao = saidaRepository.findById(id).get();
+		List<Produto> produtos = produtoRepository.findAll();
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("editarSaida");
 		mv.addObject("saida",saidaEdicao);
+		mv.addObject("produto", produtos);
 		return mv;
 		
 	}

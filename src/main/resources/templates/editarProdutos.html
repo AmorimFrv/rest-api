@@ -174,10 +174,6 @@
           <input th:field="${produto.valorSaida}" type="text" class="form-control" id="valorSaida" name="valorSaida">
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Quantidade</label>
-          <input th:field="${produto.quantidade}" type="number" class="form-control" id="quantidade" name="quantidade">
-        </div>
-        <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Categoria</label>
           <select class="form-control" name="nomeCategoria" aria-label="Default select example">
             <option th:value="${produto.nomeCategoria}" th:text="${produto.nomeCategoria}" selected></option>

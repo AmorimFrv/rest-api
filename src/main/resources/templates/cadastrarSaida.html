@@ -158,30 +158,17 @@
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label mt-3" style="font-size: large;">Item</label>
-            <input type="text" class="form-control" id="item" name="item" aria-describedby="emailHelp">
+            <select class="form-control" name="item" aria-label="Default select example" required>
+              <option disabled selected>Selecione o item</option>
+              <option th:each="produto : ${produtos}" th:value="${produto.nome}" th:text="${produto.nome}"></option>
+            </select>
           </div>
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label mt-3" style="font-size: large;">Categoria</label>
-            <input type="text" class="form-control" id="categoria" name="categoria" aria-describedby="emailHelp">
-          </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Especificação 1</label>
-          <input type="text" class="form-control" id="especificacao1" name="especificacao1">
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Especificação 2</label>
-          <input type="text" class="form-control" id="especificacao2" name="especificacao2">
-        </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Quantidade</label>
           <input type="text" class="form-control" id="quantidade" name="quantidade">
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Valor</label>
-          <input type="text" class="form-control" id="valor" name="valor">
-        </div>
         <div class="d-grid gap-2">
-          <button type="button" class="btn btn-outline-secondary" onclick="unmask()">Cadastrar</button>
+          <button type="submit" class="btn btn-outline-secondary" onclick="unmask()">Cadastrar</button>
         </div>
           
       </form>

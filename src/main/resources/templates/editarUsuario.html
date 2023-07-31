@@ -177,24 +177,24 @@
       <form method="POST" action="/usuarioEditar" name="formulario">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label mt-3" style="font-size: large;">Nome de Usuário</label>
-          <input type="text" class="form-control" id="nome" name="nome" aria-describedby="emailHelp">
+          <input th:field="${usuario.nome}" type="text" class="form-control" id="nome" name="nome" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Senha</label>
-          <input type="password" class="form-control" id="senha" name="senha">
+          <input th:field="${usuario.senha}" type="password" class="form-control" id="senha" name="senha">
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label mt-3" style="font-size: large;">Tipo de Usuário</label>
           <select class="form-control" name="tipoUsuario" aria-label="Default select example" required>
-            <option disabled selected>Selecione o Tipo de Usuário</option>
+            <option th:value="${usuario.tipoUsuario}" th:text="${usuario.tipoUsuario}" selected></option>
             <option value="Admnistrador">Admnistrador</option>
-            <option value="Admnisrrador">Usuário</option>
+            <option value="Usuario">Usuário</option>
           </select>
 
           
         </div> 
         <div class="d-grid gap-2">
-          <button type="button" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3">Editar</button>
+          <button type="submit" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3">Editar</button>
         </div>
           
       </form>

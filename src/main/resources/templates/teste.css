@@ -1,7 +1,4 @@
-.gradient-custom-2 {
-    /* fallback for old browsers */
-    background: #fccb90;
-    
+.gradient-custom-2 {    
     /* Chrome 10-25, Safari 5.1-6 */
     background: -webkit-linear-gradient(to right, #982fed, #5b39f7, #4c67e0, #45dbed);
     
@@ -20,3 +17,7 @@
     border-bottom-right-radius: .3rem;
     }
     }
+
+.navbar{
+    background-image: linear-gradient(to right, #982fed, #5b39f7, #4c67e0, #45dbed);
+}

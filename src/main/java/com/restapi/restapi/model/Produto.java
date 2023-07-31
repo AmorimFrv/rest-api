@@ -25,8 +25,6 @@ public class Produto {
 	
 	private Long valorSaida;
 	
-	private int quantidade;
-	
 	private String nomeCategoria;
 	
 	private String nomeFornecedor;
@@ -79,13 +77,6 @@ public class Produto {
 		this.valorSaida = valorSaida;
 	}
 	
-	public int getQuantidade() {
-		return quantidade;
-	}
-
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
 	
 	public String getNomeCategoria() {
 		return nomeCategoria;
